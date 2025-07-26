@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompto - AI Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background gradient -->
+    <div class="background-gradient"></div>
+    
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-gradient">Prompto</span>
+            </h1>
+            <p class="subtitle">Generate perfect AI prompts instantly</p>
+        </header>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <!-- Input section -->
+            <section class="input-section" id="inputSection">
+                <div class="input-card">
+                    <!-- Goal input -->
+                    <div class="input-group">
+                        <div class="input-container">
+                            <textarea 
+                                id="goalInput" 
+                                class="goal-input" 
+                                placeholder="What do you want the AI to help with?"
+                                rows="3"
+                                maxlength="500"
+                            ></textarea>
+                            <div class="char-counter" id="charCounter">0/500</div>
+                        </div>
+                    </div>
+
+                    <!-- Style dropdown -->
+                    <div class="input-group">
+                        <label for="styleSelect" class="input-label">
+                            <i class="fas fa-palette"></i>
+                            Choose a style (optional)
+                        </label>
+                        <div class="select-container">
+                            <select id="styleSelect" class="style-select">
+                                <option value="">Any Style</option>
+                                <option value="coding">💻 Coding</option>
+                                <option value="marketing">📈 Marketing</option>
+                                <option value="writing">✍️ Writing</option>
+                                <option value="productivity">⚡ Productivity</option>
+                                <option value="startup">🚀 Startup</option>
+                                <option value="creative">🎨 Creative</option>
+                                <option value="academic">🎓 Academic</option>
+                                <option value="business">💼 Business</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button id="generateBtn" class="generate-btn" disabled>
+                        <span class="btn-text">Generate Prompt</span>
+                        <i class="fas fa-magic btn-icon"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Loading section -->
+            <section class="loading-section hidden" id="loadingSection">
+                <div class="loading-card">
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                    </div>
+                    <h3>Crafting your perfect prompt...</h3>
+                    <p>Our AI is analyzing your request</p>
+                </div>
+            </section>
+
+            <!-- Output section -->
+            <section class="output-section hidden" id="outputSection">
+                <div class="output-card">
+                    <div class="output-header">
+                        <h3>
+                            <i class="fas fa-sparkles"></i>
+                            Your AI Prompt
+                        </h3>
+                        <div class="output-actions">
+                            <button id="copyBtn" class="action-btn copy-btn">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy</span>
+                            </button>
+                            <button id="resetBtn" class="action-btn reset-btn">
+                                <i class="fas fa-refresh"></i>
+                                <span>New Prompt</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-canvas">
+                        <div id="generatedPrompt" class="generated-prompt"></div>
+                    </div>
+                    
+                    <!-- Success message -->
+                    <div class="success-message hidden" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Copied to clipboard!</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error section -->
+            <section class="error-section hidden" id="errorSection">
+                <div class="error-card">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage">Please try again in a moment</p>
+                    <button id="retryBtn" class="retry-btn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>✨ Made with AI magic for creative minds</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
